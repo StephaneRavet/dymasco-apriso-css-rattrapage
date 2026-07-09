@@ -62,5 +62,5 @@ Objectif : préparer le transfert du simulateur vers l'environnement réel.
 - Préfixer les classes custom : `dy-`.
 - Préférer custom class Process Builder aux sélecteurs profonds.
 - Documenter tout `!important`.
-- Documenter toute compat upgrade.
+- Documenter tout patch temporaire.
 - Tester au moins un écran Portal + un écran mobile/tablette si concerné.

@@ -1,0 +1,140 @@
+/* Checkpoint 05 - cockpit superviseur - depart
+   Etat volontairement fonctionnel mais insuffisant.
+*/
+
+@import url("../Default/interpreter.css");
+
+:root {
+  --dy-color-text: #172026;
+  --dy-color-muted: #52636f;
+  --dy-color-surface: #ffffff;
+  --dy-color-soft: #f4f7f9;
+  --dy-color-border: #b8c5cf;
+  --dy-status-running: #15803d;
+  --dy-status-waiting: #64748b;
+  --dy-status-blocked: #b91c1c;
+  --dy-status-quality: #b45309;
+}
+
+.FIPageTitle {
+  color: var(--dy-color-text) !important;
+}
+
+.FICockpitMeta {
+  margin: 0 0 12px;
+  color: #52636f;
+  font-size: 13px;
+}
+
+.FICockpitHeader {
+  margin-bottom: 12px;
+}
+
+.FICockpitActions {
+  display: flex;
+  gap: 8px;
+}
+
+.FIButton--danger {
+  background: #b91c1c;
+  border-color: #7f1d1d;
+}
+
+.FIPriorityStrip {
+  margin: 12px 0;
+  padding: 12px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.FIKpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.FIKpiCard,
+.FICell,
+.FIIncidentPanel {
+  padding: 12px;
+  background: white;
+  border: 1px solid #b8c5cf;
+}
+
+.FIKpiLabel,
+.FIKpiHint {
+  display: block;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIKpiValue {
+  display: block;
+  margin: 6px 0;
+  color: #172026;
+  font-size: 30px;
+}
+
+.FIWorkArea {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.FILineMap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.FICell h4,
+.FICell p {
+  margin: 0 0 6px;
+}
+
+.FICellMetrics {
+  display: flex;
+  justify-content: space-between;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FICell--blocked {
+  border-color: #b91c1c;
+  background: #fff1f2;
+}
+
+.FICell--quality {
+  border-color: #b45309;
+  background: #fffbeb;
+}
+
+.FIQueueTable {
+  min-width: 720px;
+}
+
+.FIIncidentList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.FIIncidentList li {
+  margin-bottom: 10px;
+}
+
+.FIIncidentList span {
+  display: block;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIShiftSummary {
+  margin-top: 14px;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIQueueTable tr td:nth-child(5) .FIStatus {
+  font-weight: 800 !important;
+}

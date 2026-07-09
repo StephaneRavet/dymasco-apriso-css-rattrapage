@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr" class="PortalContext">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dymasco - Cockpit superviseur</title>
+  <link rel="stylesheet" href="../Styles/Dymasco/apriso.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/interpreter.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/keyboard.css">
+</head>
+<body>
+  <div class="AprisoPortalShell">
+    <header class="AprisoHeader">
+      <h1 class="AprisoHeader-title">DELMIA Apriso - Dymasco</h1>
+      <div class="AprisoHeader-meta">Ligne A3 - Supervision - Equipe matin</div>
+    </header>
+
+    <main class="AprisoMain">
+      <nav class="AprisoPortalTabs" aria-label="Navigation Apriso simulee">
+        <span class="AprisoPortalTab is-active">Cockpit ligne</span>
+        <span class="AprisoPortalTab">OF</span>
+        <span class="AprisoPortalTab">Qualite</span>
+        <span class="AprisoPortalTab">Maintenance</span>
+      </nav>
+
+      <section class="AprisoContentFrame">
+        <div class="FIContentPanel">
+          <section class="FICockpit" aria-labelledby="cockpit-title">
+            <header class="FICockpitHeader">
+              <div>
+                <h2 class="FIPageTitle" id="cockpit-title">Cockpit superviseur - Ligne A3</h2>
+                <p class="FICockpitMeta">Objectif client : savoir en 10 secondes quoi traiter en priorite.</p>
+              </div>
+              <div class="FICockpitActions" aria-label="Actions superviseur">
+                <button class="FIButton">Rafraichir</button>
+                <button class="FIButton FIButton--secondary">Replanifier</button>
+                <button class="FIButton FIButton--danger">Escalader incident</button>
+              </div>
+            </header>
+
+            <section class="FIPriorityStrip dy-client-priority">
+              <div>
+                <span class="FIStatus FIStatus--critical">Priorite 1</span>
+                <strong>Poste A3-03 bloque depuis 28 min</strong>
+              </div>
+              <p>OF-24073 risque de decaler la cloture du lot. Controle outillage requis avant reprise.</p>
+              <button class="FIButton FIButton--secondary">Ouvrir le dossier</button>
+            </section>
+
+            <section class="FIKpiGrid" aria-label="Indicateurs ligne">
+              <article class="FIKpiCard FIKpiCard--late">
+                <span class="FIKpiLabel">OF en retard</span>
+                <strong class="FIKpiValue">7</strong>
+                <span class="FIKpiHint">+3 depuis 08:00</span>
+              </article>
+              <article class="FIKpiCard FIKpiCard--quality">
+                <span class="FIKpiLabel">Alertes qualite</span>
+                <strong class="FIKpiValue" style="color:#b45309">4</strong>
+                <span class="FIKpiHint">2 critiques</span>
+              </article>
+              <article class="FIKpiCard FIKpiCard--rate">
+                <span class="FIKpiLabel">Cadence</span>
+                <strong class="FIKpiValue">83%</strong>
+                <span class="FIKpiHint">cible 92%</span>
+              </article>
+              <article class="FIKpiCard FIKpiCard--staff">
+                <span class="FIKpiLabel">Operateurs</span>
+                <strong class="FIKpiValue">11/13</strong>
+                <span class="FIKpiHint">2 renforts possibles</span>
+              </article>
+            </section>
+
+            <div class="FIWorkArea">
+              <section class="FILinePanel" aria-labelledby="line-map-title">
+                <h3 class="FISectionTitle" id="line-map-title">Postes ligne A3</h3>
+                <div class="FILineMap">
+                  <article class="FICell FICell--running">
+                    <h4>A3-01</h4>
+                    <p>Assemblage</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24071</span>
+                      <span>92%</span>
+                    </div>
+                  </article>
+                  <article class="FICell FICell--waiting">
+                    <h4>A3-02</h4>
+                    <p>Attente matiere</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24072</span>
+                      <span>12 min</span>
+                    </div>
+                  </article>
+                  <article class="FICell FICell--blocked dy-client-priority">
+                    <h4>A3-03</h4>
+                    <p>Incident outillage</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24073</span>
+                      <span>28 min</span>
+                    </div>
+                  </article>
+                  <article class="FICell FICell--quality">
+                    <h4>A3-04</h4>
+                    <p>Ecart dimensionnel</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24074</span>
+                      <span>QC</span>
+                    </div>
+                  </article>
+                  <article class="FICell FICell--running">
+                    <h4>A3-05</h4>
+                    <p>Controle final</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24075</span>
+                      <span>76%</span>
+                    </div>
+                  </article>
+                  <article class="FICell FICell--waiting">
+                    <h4>A3-06</h4>
+                    <p>Changement serie</p>
+                    <div class="FICellMetrics">
+                      <span>OF-24076</span>
+                      <span>09 min</span>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section class="FIQueuePanel" aria-labelledby="queue-title">
+                <h3 class="FISectionTitle" id="queue-title">OF a traiter</h3>
+                <div class="FIQueueTableWrap">
+                  <table class="FIDataTable FIQueueTable">
+                    <thead>
+                      <tr>
+                        <th>Priorite</th>
+                        <th>OF</th>
+                        <th>Poste</th>
+                        <th>Retard</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="dy-client-priority">
+                        <td>P1</td>
+                        <td>OF-24073</td>
+                        <td>A3-03</td>
+                        <td>28 min</td>
+                        <td><span class="FIStatus" style="background:#fee2e2;color:#7f1d1d">blocked</span></td>
+                        <td><button class="FIButton FIButton--secondary">Traiter</button></td>
+                      </tr>
+                      <tr>
+                        <td>P2</td>
+                        <td>OF-24074</td>
+                        <td>A3-04</td>
+                        <td>16 min</td>
+                        <td><span class="FIStatus FIStatus--quality">quality</span></td>
+                        <td><button class="FIButton">Voir</button></td>
+                      </tr>
+                      <tr>
+                        <td>P3</td>
+                        <td>OF-24072</td>
+                        <td>A3-02</td>
+                        <td>12 min</td>
+                        <td><span class="FIStatus">waiting</span></td>
+                        <td><button class="FIButton">Voir</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <aside class="FIIncidentPanel" aria-labelledby="incident-title">
+                <h3 class="FISectionTitle" id="incident-title">Incidents ouverts</h3>
+                <ol class="FIIncidentList">
+                  <li>
+                    <strong>Outillage A3-03</strong>
+                    <span>Maintenance non affectee</span>
+                  </li>
+                  <li>
+                    <strong>Controle cote B12</strong>
+                    <span>Attente validation qualite</span>
+                  </li>
+                  <li>
+                    <strong>Manque operateur</strong>
+                    <span>Renfort possible a 10:30</span>
+                  </li>
+                </ol>
+              </aside>
+            </div>
+
+            <footer class="FIShiftSummary">
+              <span>Derniere synchro : 09:42</span>
+              <span>Chef equipe : Martin D.</span>
+              <span>Fenetre de decision : 10 min</span>
+            </footer>
+          </section>
+
+          <p class="FIKeyboardHint">Raccourcis simules : F2 ouvrir OF - F4 escalader - F8 rafraichir</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

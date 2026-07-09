@@ -1,0 +1,76 @@
+/* Checkpoint 04 - mini-audit final
+   Objectif : fichier volontairement imparfait a auditer.
+*/
+
+@import url("../Default/interpreter.css");
+
+:root {
+  --dy-color-text: #172026;
+  --dy-color-muted: #52636f;
+  --dy-color-surface: #ffffff;
+  --dy-color-soft: #f4f7f9;
+  --dy-color-border: #b8c5cf;
+  --dy-status-running: #15803d;
+  --dy-status-waiting: #64748b;
+  --dy-status-blocked: #b91c1c;
+  --dy-status-quality: #b45309;
+}
+
+/* Titres */
+.FIPageTitle {
+  color: var(--dy-color-text) !important;
+}
+
+/* Cartes */
+.FIMachineCard {
+  background: var(--dy-color-surface);
+  border-color: var(--dy-color-border);
+  border-radius: 6px;
+}
+
+.FIMachineCard--running {
+  border-left-color: var(--dy-status-running) !important;
+}
+
+.FIMachineCard--waiting {
+  border-left-color: var(--dy-status-waiting) !important;
+}
+
+/* Risque 1 : couleur directe alors qu'un token existe. */
+.FIMachineCard--blocked {
+  border-left-color: #b91c1c !important;
+  background: #fff1f2 !important;
+}
+
+/* Risque 2 : couleur directe + !important non explique. */
+.FIMachineCard--quality-alert {
+  border-left-color: #b45309 !important;
+  background: #fffbeb !important;
+}
+
+/* Risque 3 : selecteur structurel fragile. */
+.FIContentPanel .FIDataTable tr td:nth-child(4) .FIStatus {
+  font-weight: 700 !important;
+}
+
+/* Risque 4 : patch technique, intention metier peu claire. */
+.dy-u-critical {
+  outline: 2px solid #b45309;
+}
+
+/* Risque 5 : inline style contourne par CSS sans expliquer la dette. */
+.dy-u-critical .FIStatus {
+  color: #7f1d1d !important;
+  background: #ffe4e6 !important;
+}
+
+/* Risque 6 : regle M&M trop large, pas limitee au composant vise. */
+.MMScreenContext .FIMachineCard,
+.MobileAppScreenContext .FIMachineCard {
+  border-radius: 2px !important;
+}
+
+/* Risque 7 : patch temporaire non date et non documente. */
+.FIHighDensityMode .FIMachineCard {
+  padding: 10px;
+}

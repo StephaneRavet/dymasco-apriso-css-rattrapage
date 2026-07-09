@@ -1,0 +1,333 @@
+/* Checkpoint 05 - cockpit superviseur - solution de reference */
+
+@import url("../Default/interpreter.css");
+
+/* Tokens */
+:root {
+  --dy-color-text: #172026;
+  --dy-color-muted: #52636f;
+  --dy-color-surface: #ffffff;
+  --dy-color-soft: #f4f7f9;
+  --dy-color-border: #b8c5cf;
+  --dy-status-running: #15803d;
+  --dy-status-waiting: #64748b;
+  --dy-status-blocked: #b91c1c;
+  --dy-status-quality: #b45309;
+  --dy-cockpit-gap: clamp(8px, 1.2vw, 16px);
+  --dy-cockpit-radius: 6px;
+  --dy-cockpit-shadow: 0 1px 3px rgb(23 32 38 / 0.12);
+  --dy-critical-soft: #fff1f2;
+  --dy-quality-soft: #fffbeb;
+}
+
+/* Function Interpreter - base */
+.FIPageTitle {
+  margin-bottom: 4px;
+  color: var(--dy-color-text) !important; /* Default impose !important. */
+  font-size: clamp(20px, 1.6vw, 28px);
+}
+
+.FISectionTitle {
+  color: var(--dy-color-text);
+  font-size: clamp(15px, 1vw, 18px);
+}
+
+.FIButton {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.FIButton--danger {
+  color: white;
+  background: var(--dy-status-blocked);
+  border-color: var(--dy-status-blocked);
+}
+
+.FIButton--secondary.dy-client-priority,
+.dy-client-priority .FIButton--secondary {
+  color: white;
+  background: var(--dy-status-blocked);
+  border-color: var(--dy-status-blocked);
+}
+
+/* Cockpit superviseur */
+.FICockpit {
+  display: grid;
+  gap: var(--dy-cockpit-gap);
+  color: var(--dy-color-text);
+}
+
+.FICockpitHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--dy-cockpit-gap);
+}
+
+.FICockpitMeta {
+  margin: 0;
+  color: var(--dy-color-muted);
+  font-size: clamp(12px, 0.9vw, 14px);
+}
+
+.FICockpitActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.FIPriorityStrip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  align-items: center;
+  padding: clamp(10px, 1vw, 14px);
+  background: var(--dy-critical-soft);
+  border: 1px solid #fecdd3;
+  border-left: 8px solid var(--dy-status-blocked);
+  border-radius: var(--dy-cockpit-radius);
+}
+
+.FIPriorityStrip p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--dy-color-muted);
+}
+
+/* KPI */
+.FIKpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: var(--dy-cockpit-gap);
+}
+
+.FIKpiCard {
+  min-width: 0;
+  padding: clamp(10px, 1.2vw, 16px);
+  background: var(--dy-color-surface);
+  border: 1px solid var(--dy-color-border);
+  border-radius: var(--dy-cockpit-radius);
+  box-shadow: var(--dy-cockpit-shadow);
+}
+
+.FIKpiCard--late {
+  border-left: 6px solid var(--dy-status-blocked);
+}
+
+.FIKpiCard--quality {
+  border-left: 6px solid var(--dy-status-quality);
+}
+
+.FIKpiCard--rate {
+  border-left: 6px solid var(--dy-status-running);
+}
+
+.FIKpiCard--staff {
+  border-left: 6px solid var(--dy-status-waiting);
+}
+
+.FIKpiLabel,
+.FIKpiHint {
+  display: block;
+  color: var(--dy-color-muted);
+  font-size: clamp(11px, 0.85vw, 13px);
+}
+
+.FIKpiValue {
+  display: block;
+  margin: 4px 0;
+  color: var(--dy-color-text);
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1;
+}
+
+/* Zones de travail */
+.FIWorkArea {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.35fr) minmax(280px, 1fr);
+  gap: var(--dy-cockpit-gap);
+  align-items: start;
+}
+
+.FILinePanel {
+  min-width: 0;
+}
+
+.FIIncidentPanel {
+  grid-column: 2;
+  padding: clamp(10px, 1vw, 14px);
+  background: var(--dy-color-surface);
+  border: 1px solid var(--dy-color-border);
+  border-radius: var(--dy-cockpit-radius);
+}
+
+.FILineMap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 8px;
+}
+
+.FICell {
+  min-width: 0;
+  padding: 12px;
+  background: var(--dy-color-surface);
+  border: 1px solid var(--dy-color-border);
+  border-left: 6px solid var(--dy-status-waiting);
+  border-radius: var(--dy-cockpit-radius);
+}
+
+.FICell h4,
+.FICell p {
+  margin: 0 0 6px;
+}
+
+.FICell p {
+  color: var(--dy-color-muted);
+}
+
+.FICellMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  color: var(--dy-color-muted);
+  font-size: 12px;
+}
+
+.FICell--running {
+  border-left-color: var(--dy-status-running);
+}
+
+.FICell--waiting {
+  border-left-color: var(--dy-status-waiting);
+}
+
+.FICell--blocked {
+  background: var(--dy-critical-soft);
+  border-color: #fecdd3;
+  border-left-color: var(--dy-status-blocked);
+}
+
+.FICell--quality {
+  background: var(--dy-quality-soft);
+  border-color: #fde68a;
+  border-left-color: var(--dy-status-quality);
+}
+
+/* Table OF */
+.FIQueuePanel {
+  min-width: 0;
+}
+
+.FIQueueTableWrap {
+  overflow-x: auto;
+}
+
+.FIQueueTable {
+  min-width: 680px;
+}
+
+.FIQueueTable .dy-client-priority {
+  background: var(--dy-critical-soft);
+}
+
+.FIStatus--critical,
+.dy-client-priority .FIStatus {
+  color: #7f1d1d !important; /* HTML simule un Direct formatting Apriso. */
+  background: #ffe4e6 !important;
+}
+
+.FIStatus--quality {
+  color: #78350f;
+  background: #fef3c7;
+}
+
+/* Incidents */
+.FIIncidentList {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.FIIncidentList li {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--dy-color-border);
+}
+
+.FIIncidentList span {
+  display: block;
+  color: var(--dy-color-muted);
+  font-size: 12px;
+}
+
+.FIShiftSummary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--dy-color-muted);
+  font-size: 12px;
+}
+
+/* Contextes Apriso */
+.MMScreenContext .FICockpit {
+  gap: 8px;
+}
+
+.MMScreenContext .FICockpitHeader,
+.MMScreenContext .FIWorkArea {
+  grid-template-columns: 1fr;
+}
+
+.MMScreenContext .FICockpitHeader {
+  display: grid;
+}
+
+.MMScreenContext .FICockpitActions {
+  justify-content: flex-start;
+}
+
+.MobileAppScreenContext .FICockpitHeader,
+.MobileAppScreenContext .FIPriorityStrip,
+.MobileAppScreenContext .FIWorkArea {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.MobileAppScreenContext .FIIncidentPanel {
+  grid-column: auto;
+}
+
+.MobileAppScreenContext .FICockpitActions .FIButton {
+  width: 100%;
+}
+
+@media (max-width: 920px) {
+  .FICockpitHeader,
+  .FIPriorityStrip,
+  .FIWorkArea {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .FIIncidentPanel {
+    grid-column: auto;
+  }
+
+  .FICockpitActions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .FICockpitActions .FIButton,
+  .FIPriorityStrip .FIButton {
+    width: 100%;
+  }
+
+  .FIKpiGrid,
+  .FILineMap {
+    grid-template-columns: 1fr;
+  }
+}

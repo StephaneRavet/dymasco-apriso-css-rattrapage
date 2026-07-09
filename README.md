@@ -15,6 +15,7 @@ Objectif : simuler un environnement DELMIA Apriso sans acces a Apriso.
 
 ```text
 FORMATION.md
+EXERCICE_4_COCKPIT.md
 FICHE_ANIMATEUR.md
 CHECKLIST_APRISO_REEL.md
 EXERCICES.md
@@ -32,12 +33,15 @@ Portal/
     atelier.html
     atelier-mm.html
     atelier-mobile.html
+    exercice-4-cockpit.html
 checkpoints/
   00-start/
   01-diagnostic/
   02-interpreter/
   03-theme/
-  04-bonus-upgrade/
+  04-audit/
+  05-cockpit-start/
+  05-cockpit-solution/
 ```
 
 ## Supports Markdown
@@ -45,6 +49,7 @@ checkpoints/
 | Fichier | Usage |
 | --- | --- |
 | `FORMATION.md` | Support principal, futur contenu Notion |
+| `EXERCICE_4_COCKPIT.md` | Challenge client cockpit superviseur |
 | `FICHE_ANIMATEUR.md` | Déroulé, phrases, vigilance |
 | `CHECKLIST_APRISO_REEL.md` | Transfert vers l'environnement Apriso réel |
 | `EXERCICES.md` | Version compacte des exercices et corrigés |
@@ -75,7 +80,7 @@ Portal/Screens/atelier-mobile.html
 ## Progression
 
 1. Comprendre ou se branche le CSS dans Apriso
-2. Diagnostiquer pourquoi une regle gagne
-3. Corriger `interpreter.css`
-4. Structurer un theme maintenable
-5. Bonus : survivre a une mise a jour Apriso
+2. Atelier 1 : diagnostiquer pourquoi une regle gagne
+3. Atelier 2 : surcharger dans le bon fichier
+4. Atelier 3 : passer d'un CSS qui marche a un theme maintenable
+5. Atelier 4 : challenge client cockpit superviseur
