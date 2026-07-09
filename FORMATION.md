@@ -852,13 +852,256 @@ Résultat attendu :
 > [!NOTE]
 > **Cadre formateur — Risques à faire émerger**
 >
-> - `.FIMachineCard--blocked` utilise `#b91c1c` au lieu de `var(--dy-status-blocked)`.
-> - `.FIMachineCard--quality-alert` mélange valeur directe et `!important`.
-> - `.FIContentPanel .FIDataTable tr td:nth-child(4) .FIStatus` dépend de la structure du tableau.
-> - `.dy-u-critical` exprime une technique, pas clairement une intention métier.
-> - `.dy-u-critical .FIStatus` contourne un style inline sans expliquer la dette.
-> - `.MMScreenContext .FIMachineCard, .MobileAppScreenContext .FIMachineCard` mélange deux contextes.
-> - `.FIHighDensityMode .FIMachineCard` ressemble à un patch temporaire non daté.
+> Classement du plus dangereux au moins dangereux :
+>
+> | Priorité | Risque | Pourquoi c'est dangereux |
+> | --- | --- | --- |
+> | 1 | Sélecteur structurel `td:nth-child(4)` | casse dès que le tableau change |
+> | 2 | Contextes M&M et mobile mélangés | peut créer une régression invisible sur un autre écran |
+> | 3 | Contournement inline non documenté | masque une dette Apriso / Process Builder |
+> | 4 | Patch temporaire non daté | devient permanent sans responsable |
+> | 5 | Classe `.dy-u-critical` trop technique | intention métier peu transmissible |
+> | 6 | Couleurs directes sur `quality-alert` | dérive progressive du thème |
+> | 7 | Couleurs directes sur `blocked` | dette simple, facile à corriger |
+>
+> ### 1. Sélecteur structurel fragile
+>
+> Avant :
+>
+> ```css
+> .FIContentPanel .FIDataTable tr td:nth-child(4) .FIStatus {
+>   font-weight: 700 !important;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - dépend de la position de colonne ;
+> - casse si une colonne est ajoutée, retirée ou déplacée ;
+> - ne dit pas quelle intention métier est visée.
+>
+> Après :
+>
+> ```css
+> .dy-status-critical .FIStatus,
+> .dy-client-priority .FIStatus {
+>   font-weight: 700;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - dépend d'une intention métier ;
+> - survit aux changements de structure du tableau ;
+> - peut être posée proprement dans Process Builder.
+>
+> ### 2. Contextes M&M et mobile mélangés
+>
+> Avant :
+>
+> ```css
+> .MMScreenContext .FIMachineCard,
+> .MobileAppScreenContext .FIMachineCard {
+>   border-radius: 2px !important;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - M&M et mobile n'ont pas forcément les mêmes contraintes ;
+> - une correction M&M peut casser le mobile ;
+> - le `!important` empêche d'ajuster finement un contexte.
+>
+> Après :
+>
+> ```css
+> .MMScreenContext .FIMachineCard {
+>   border-radius: 2px;
+>   box-shadow: none;
+> }
+>
+> .MobileAppScreenContext .FIButton {
+>   width: 100%;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - chaque contexte Apriso porte ses propres règles ;
+> - on limite les effets de bord ;
+> - la review peut tester Portal, M&M et mobile séparément.
+>
+> ### 3. Contournement inline non documenté
+>
+> Avant :
+>
+> ```css
+> .dy-u-critical .FIStatus {
+>   color: #7f1d1d !important;
+>   background: #ffe4e6 !important;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - le CSS masque probablement un Direct formatting Apriso ;
+> - on ne sait pas si c'est une vraie règle ou un contournement ;
+> - le prochain développeur risque d'empiler un autre `!important`.
+>
+> Après :
+>
+> ```css
+> .dy-u-critical .FIStatus {
+>   color: #7f1d1d !important; /* HTML simule Direct formatting Apriso. */
+>   background: #ffe4e6 !important;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - la dette est visible ;
+> - la vraie correction reste identifiée : enlever le style inline côté Apriso / Process Builder ;
+> - le `!important` est justifié.
+>
+> ### 4. Patch temporaire non daté
+>
+> Avant :
+>
+> ```css
+> .FIHighDensityMode .FIMachineCard {
+>   padding: 10px;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - on ne sait pas pourquoi le patch existe ;
+> - on ne sait pas quand le supprimer ;
+> - le temporaire devient souvent définitif.
+>
+> Après :
+>
+> ```css
+> /* Patch temporaire densite atelier.
+>    Cause : attente arbitrage écran compact Apriso.
+>    Revue : 2026-07-09.
+> */
+> .FIHighDensityMode .FIMachineCard {
+>   padding: 10px;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - la cause est explicite ;
+> - une date de revue existe ;
+> - le patch est supprimable.
+>
+> ### 5. Classe technique peu métier
+>
+> Avant :
+>
+> ```css
+> .dy-u-critical {
+>   outline: 2px solid #b45309;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - `u` ressemble à une classe utilitaire ;
+> - l'intention métier n'est pas claire ;
+> - la couleur directe mélange technique et métier.
+>
+> Après :
+>
+> ```css
+> .dy-client-priority {
+>   border-color: var(--dy-status-quality) !important;
+>   outline: 0;
+>   box-shadow: inset 0 0 0 2px rgb(180 83 9 / 0.28);
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - le nom dit pourquoi l'élément est stylé ;
+> - la classe peut être posée dans Process Builder ;
+> - la couleur principale revient au token.
+>
+> Variante acceptable si le HTML du kit ne doit pas bouger :
+>
+> ```css
+> .dy-u-critical {
+>   border-color: var(--dy-status-quality) !important;
+>   outline: 0;
+>   box-shadow: inset 0 0 0 2px rgb(180 83 9 / 0.28);
+> }
+> ```
+>
+> ### 6. `quality-alert` utilise des couleurs directes
+>
+> Avant :
+>
+> ```css
+> .FIMachineCard--quality-alert {
+>   border-left-color: #b45309 !important;
+>   background: #fffbeb !important;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - la couleur métier est dupliquée ;
+> - si le thème Dymasco change, cette règle ne suit pas ;
+> - le `!important` n'explique pas quelle règle il bat.
+>
+> Après :
+>
+> ```css
+> .FIMachineCard--quality-alert {
+>   border-left-color: var(--dy-status-quality) !important;
+>   background: #fffbeb !important;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - le statut qualité dépend du token Dymasco ;
+> - la règle reste alignée avec le thème ;
+> - seule la nuance de fond reste locale.
+>
+> ### 7. `blocked` utilise des couleurs directes
+>
+> Avant :
+>
+> ```css
+> .FIMachineCard--blocked {
+>   border-left-color: #b91c1c !important;
+>   background: #fff1f2 !important;
+> }
+> ```
+>
+> Pourquoi ce n'est pas bien :
+>
+> - même couleur que le token `--dy-status-blocked`, mais recopiée en dur ;
+> - risque de divergence si le rouge Dymasco change ;
+> - intention métier moins visible.
+>
+> Après :
+>
+> ```css
+> .FIMachineCard--blocked {
+>   border-left-color: var(--dy-status-blocked) !important;
+>   background: #fff1f2 !important;
+> }
+> ```
+>
+> Pourquoi c'est mieux :
+>
+> - la règle lit clairement "statut bloqué" ;
+> - le thème reste piloté par les tokens ;
+> - correction simple, faible risque.
 
 ## Niveau 2 - Classer avant de corriger
 

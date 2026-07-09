@@ -1,6 +1,4 @@
-/* Checkpoint 04 - mini-audit final
-   Objectif : fichier volontairement imparfait a auditer.
-*/
+/* Checkpoint 04 - theme apres plusieurs corrections rapides */
 
 @import url("../Default/interpreter.css");
 
@@ -36,41 +34,34 @@
   border-left-color: var(--dy-status-waiting) !important;
 }
 
-/* Risque 1 : couleur directe alors qu'un token existe. */
 .FIMachineCard--blocked {
   border-left-color: #b91c1c !important;
   background: #fff1f2 !important;
 }
 
-/* Risque 2 : couleur directe + !important non explique. */
 .FIMachineCard--quality-alert {
   border-left-color: #b45309 !important;
   background: #fffbeb !important;
 }
 
-/* Risque 3 : selecteur structurel fragile. */
 .FIContentPanel .FIDataTable tr td:nth-child(4) .FIStatus {
   font-weight: 700 !important;
 }
 
-/* Risque 4 : patch technique, intention metier peu claire. */
 .dy-u-critical {
   outline: 2px solid #b45309;
 }
 
-/* Risque 5 : inline style contourne par CSS sans expliquer la dette. */
 .dy-u-critical .FIStatus {
   color: #7f1d1d !important;
   background: #ffe4e6 !important;
 }
 
-/* Risque 6 : regle M&M trop large, pas limitee au composant vise. */
 .MMScreenContext .FIMachineCard,
 .MobileAppScreenContext .FIMachineCard {
   border-radius: 2px !important;
 }
 
-/* Risque 7 : patch temporaire non date et non documente. */
 .FIHighDensityMode .FIMachineCard {
   padding: 10px;
 }
