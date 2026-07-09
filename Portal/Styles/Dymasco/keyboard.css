@@ -1,0 +1,8 @@
+/* DYMASCO THEME - keyboard.css */
+
+@import url("../Default/keyboard.css");
+
+.FIKeyboardHint {
+  color: #475569;
+}
+

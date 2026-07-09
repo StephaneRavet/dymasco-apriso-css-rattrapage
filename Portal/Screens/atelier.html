@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr" class="PortalContext">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dymasco - Poste atelier</title>
+  <link rel="stylesheet" href="../Styles/Dymasco/apriso.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/interpreter.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/keyboard.css">
+</head>
+<body>
+  <div class="AprisoPortalShell">
+    <header class="AprisoHeader">
+      <h1 class="AprisoHeader-title">DELMIA Apriso - Dymasco</h1>
+      <div class="AprisoHeader-meta">Atelier A3 - Equipe matin - Operateur SR</div>
+    </header>
+
+    <main class="AprisoMain">
+      <nav class="AprisoPortalTabs" aria-label="Navigation Apriso simulee">
+        <span class="AprisoPortalTab is-active">Execution</span>
+        <span class="AprisoPortalTab">Qualite</span>
+        <span class="AprisoPortalTab">Maintenance</span>
+      </nav>
+
+      <section class="AprisoContentFrame">
+        <div class="FIContentPanel">
+          <h2 class="FIPageTitle">Poste atelier - suivi OF et alertes qualite</h2>
+
+          <div class="FIMessage FIMessage--warning">
+            Lot OF-24071 : controle qualite requis avant cloture.
+          </div>
+
+          <h3 class="FISectionTitle">Postes</h3>
+          <div class="FIGrid">
+            <article class="FIMachineCard FIMachineCard--running">
+              <h4 class="FIMachineCard-title">Poste A3-01</h4>
+              <p class="FIMachineCard-meta">OF-24071 - Assemblage</p>
+              <span class="FIStatus">running</span>
+            </article>
+            <article class="FIMachineCard FIMachineCard--waiting">
+              <h4 class="FIMachineCard-title">Poste A3-02</h4>
+              <p class="FIMachineCard-meta">OF-24072 - Attente matiere</p>
+              <span class="FIStatus">waiting</span>
+            </article>
+            <article class="FIMachineCard FIMachineCard--blocked dy-u-critical">
+              <h4 class="FIMachineCard-title">Poste A3-03</h4>
+              <p class="FIMachineCard-meta">OF-24073 - Incident outillage</p>
+              <span class="FIStatus" style="background:#fee2e2;color:#7f1d1d">blocked</span>
+            </article>
+            <article class="FIMachineCard FIMachineCard--quality-alert">
+              <h4 class="FIMachineCard-title">Poste A3-04</h4>
+              <p class="FIMachineCard-meta">OF-24074 - Ecart dimensionnel</p>
+              <span class="FIStatus">quality alert</span>
+            </article>
+          </div>
+
+          <h3 class="FISectionTitle">Operations en cours</h3>
+          <table class="FIDataTable">
+            <thead>
+              <tr>
+                <th>OF</th>
+                <th>Operation</th>
+                <th>Ressource</th>
+                <th>Statut</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OF-24071</td>
+                <td>Assemblage sous-ensemble</td>
+                <td>A3-01</td>
+                <td><span class="FIStatus">running</span></td>
+                <td><button class="FIButton">Declarer</button></td>
+              </tr>
+              <tr>
+                <td>OF-24073</td>
+                <td>Controle outillage</td>
+                <td>A3-03</td>
+                <td><span class="FIStatus" style="background:#fee2e2;color:#7f1d1d">blocked</span></td>
+                <td><button class="FIButton FIButton--secondary">Incident</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="FIKeyboardHint">Raccourcis simules : F2 declarer - F4 incident - F8 rafraichir</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

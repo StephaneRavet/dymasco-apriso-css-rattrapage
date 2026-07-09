@@ -1,0 +1,158 @@
+/* ==========================================================================
+   DEFAULT THEME - interpreter.css
+   Simule le rendu Function Interpreter livre par Apriso.
+   Ne pas modifier pendant les exercices.
+   ========================================================================== */
+
+.FIContentPanel {
+  padding: 16px;
+  background: #ffffff;
+}
+
+.FIPageTitle {
+  margin: 0 0 12px;
+  color: #214d7a !important;
+  font-size: 22px;
+}
+
+.FISectionTitle {
+  margin: 18px 0 8px;
+  color: #27394d;
+  font-size: 16px;
+}
+
+.FIGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.FIMachineCard {
+  padding: 12px;
+  background: #f6f8fb;
+  border: 1px solid #c9d3df;
+  border-left: 8px solid #8aa0b8;
+  border-radius: 3px;
+}
+
+.FIMachineCard-title {
+  margin: 0 0 6px;
+  color: #102a43;
+  font-size: 15px;
+}
+
+.FIMachineCard-meta {
+  margin: 0;
+  color: #5c6f82;
+  font-size: 12px;
+}
+
+.FIMachineCard--running {
+  border-left-color: #2f855a !important;
+}
+
+.FIMachineCard--waiting {
+  border-left-color: #718096 !important;
+}
+
+.FIMachineCard--blocked {
+  border-left-color: #c53030 !important;
+  background: #fff5f5 !important;
+}
+
+.FIMachineCard--quality-alert {
+  border-left-color: #dd6b20 !important;
+  background: #fffaf0 !important;
+}
+
+.FIStatus {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 2px 8px;
+  color: #1a202c;
+  background: #edf2f7;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.FIDataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.FIDataTable th,
+.FIDataTable td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #d9e2ec;
+}
+
+.FIDataTable th {
+  color: #1f344a;
+  background: #eef3f8;
+}
+
+.FIMessage {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid #c9d3df;
+  background: #f7fafc;
+}
+
+.FIMessage--warning {
+  border-color: #d69e2e;
+  background: #fffaf0;
+}
+
+.FIMessage--error {
+  border-color: #c53030;
+  background: #fff5f5;
+}
+
+.FIButton {
+  min-height: 34px;
+  padding: 0 12px;
+  color: white;
+  background: #214d7a;
+  border: 1px solid #163957;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.FIButton--secondary {
+  color: #214d7a;
+  background: white;
+}
+
+.MMScreenContext .FIContentPanel {
+  padding: 6px;
+  margin: 3px;
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.MMScreenContext .FIGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.MMScreenContext .FIMachineCard {
+  padding: 8px;
+  border-radius: 0;
+}
+
+.MobileAppScreenContext .FIGrid {
+  grid-template-columns: 1fr;
+}
+
+.MobileAppScreenContext .FIContentPanel {
+  padding: 10px;
+}
+
+.MobileAppScreenContext .FIDataTable {
+  font-size: 12px;
+}
+

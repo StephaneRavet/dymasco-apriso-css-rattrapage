@@ -1,0 +1,106 @@
+/* ==========================================================================
+   DEFAULT THEME - apriso.css
+   Simule le theme Portal livre par Apriso.
+   Ne pas modifier pendant les exercices.
+   ========================================================================== */
+
+:root {
+  --apriso-blue: #214d7a;
+  --apriso-blue-dark: #163957;
+  --apriso-border: #c9d3df;
+  --apriso-panel: #f4f7fa;
+  --apriso-text: #18212b;
+  --apriso-muted: #617182;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--apriso-text);
+  background: #e8edf3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.AprisoPortalShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 56px 1fr;
+}
+
+.AprisoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 18px;
+  color: white;
+  background: var(--apriso-blue);
+  border-bottom: 4px solid var(--apriso-blue-dark);
+}
+
+.AprisoHeader-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.AprisoHeader-meta {
+  color: #d9e7f5;
+  font-size: 13px;
+}
+
+.AprisoMain {
+  padding: 16px;
+}
+
+.AprisoPortalTabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.AprisoPortalTab {
+  padding: 8px 12px;
+  color: #1f344a;
+  background: #dbe4ee;
+  border: 1px solid #bdcad8;
+  border-radius: 3px 3px 0 0;
+  font-size: 13px;
+}
+
+.AprisoPortalTab.is-active {
+  background: white;
+  border-bottom-color: white;
+  font-weight: 700;
+}
+
+.AprisoContentFrame {
+  min-height: calc(100vh - 120px);
+  background: white;
+  border: 1px solid var(--apriso-border);
+}
+
+.MMScreenContext .AprisoMain {
+  padding: 8px;
+}
+
+.MMScreenContext .AprisoContentFrame {
+  border-color: #aeb8c3;
+}
+
+.MobileAppScreenContext .AprisoPortalShell {
+  grid-template-rows: 48px 1fr;
+}
+
+.MobileAppScreenContext .AprisoHeader {
+  padding: 0 12px;
+}
+
+.MobileAppScreenContext .AprisoHeader-meta {
+  display: none;
+}
+

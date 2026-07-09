@@ -1,0 +1,24 @@
+/* ==========================================================================
+   DYMASCO THEME - apriso.css
+   Simule le theme copie depuis Default puis adapte.
+   Zone de travail : shell Portal.
+   ========================================================================== */
+
+@import url("../Default/apriso.css");
+
+:root {
+  --dy-color-brand: #0f766e;
+  --dy-color-brand-dark: #134e4a;
+  --dy-color-panel: #f8fafc;
+  --dy-color-border: #a7b6c2;
+}
+
+.AprisoHeader {
+  background: var(--dy-color-brand);
+  border-bottom-color: var(--dy-color-brand-dark);
+}
+
+.AprisoPortalTab.is-active {
+  color: var(--dy-color-brand-dark);
+}
+

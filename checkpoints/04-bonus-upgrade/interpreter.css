@@ -1,0 +1,19 @@
+/* Checkpoint 04 - bonus compat upgrade */
+
+@import url("../03-theme/interpreter.css");
+
+/* Compat upgrade Apriso - a supprimer apres migration complete.
+   Hypothese atelier : FIMachineCard renomme en FIWorkstationCard.
+   Revue : 2026-07-09.
+*/
+.FIMachineCard,
+.FIWorkstationCard {
+  background: var(--dy-color-surface);
+  border-color: var(--dy-color-border);
+}
+
+.FIMachineCard-title,
+.FIWorkstationCard-title {
+  color: var(--dy-color-text);
+}
+
