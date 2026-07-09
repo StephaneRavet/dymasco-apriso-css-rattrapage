@@ -1,6 +1,6 @@
 /* Checkpoint 03 - theme Dymasco organise */
 
-@import url("../../Portal/Styles/Default/interpreter.css");
+@import url("../Default/interpreter.css");
 
 /* Tokens */
 :root {
@@ -70,4 +70,3 @@
 .MobileAppScreenContext .FIButton {
   width: 100%;
 }
-

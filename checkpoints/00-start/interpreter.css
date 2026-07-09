@@ -1,4 +1,47 @@
-/* Checkpoint 00 - etat initial */
+/* ==========================================================================
+   DYMASCO THEME - interpreter.css
+   Zone de travail principale : Function Interpreter.
 
-@import url("../../Portal/Styles/Dymasco/interpreter.css");
+   Regles de l'atelier :
+   - Ne pas modifier Default/
+   - Corriger ici quand le probleme concerne le contenu operation
+   - Garder les selecteurs courts mais scopes
+   - N'utiliser !important que si le diagnostic le justifie
+   ========================================================================== */
 
+@import url("../Default/interpreter.css");
+
+:root {
+  --dy-color-text: #172026;
+  --dy-color-muted: #52636f;
+  --dy-color-surface: #ffffff;
+  --dy-color-soft: #f4f7f9;
+  --dy-color-border: #b8c5cf;
+  --dy-status-running: #15803d;
+  --dy-status-waiting: #64748b;
+  --dy-status-blocked: #b91c1c;
+  --dy-status-quality: #b45309;
+}
+
+/* Exercice 2.1 : le titre reste bleu Apriso. */
+.FIPageTitle {
+  color: var(--dy-color-text);
+}
+
+/* Exercice 2.2 : les cartes critiques gardent le fond Apriso. */
+.FIMachineCard {
+  background: var(--dy-color-surface);
+  border-color: var(--dy-color-border);
+  border-radius: 6px;
+}
+
+/* Exercice 2.3 : badges status a harmoniser. */
+.FIStatus {
+  color: var(--dy-color-text);
+  background: var(--dy-color-soft);
+}
+
+/* Exercice 3.1 : custom class Process Builder simulee. */
+.dy-u-critical {
+  outline: 2px solid var(--dy-status-quality);
+}

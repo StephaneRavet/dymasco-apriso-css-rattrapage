@@ -1,6 +1,6 @@
 /* Checkpoint 02 - interpreter.css stabilise */
 
-@import url("../../Portal/Styles/Default/interpreter.css");
+@import url("../Default/interpreter.css");
 
 :root {
   --dy-color-text: #172026;
@@ -57,4 +57,3 @@
   color: #7f1d1d !important;
   background: #ffe4e6 !important;
 }
-

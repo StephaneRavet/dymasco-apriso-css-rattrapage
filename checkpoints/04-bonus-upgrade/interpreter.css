@@ -1,6 +1,75 @@
 /* Checkpoint 04 - bonus compat upgrade */
 
-@import url("../03-theme/interpreter.css");
+@import url("../Default/interpreter.css");
+
+/* Tokens */
+:root {
+  --dy-color-text: #172026;
+  --dy-color-muted: #52636f;
+  --dy-color-surface: #ffffff;
+  --dy-color-soft: #f4f7f9;
+  --dy-color-border: #b8c5cf;
+  --dy-status-running: #15803d;
+  --dy-status-waiting: #64748b;
+  --dy-status-blocked: #b91c1c;
+  --dy-status-quality: #b45309;
+}
+
+/* Function Interpreter - titres */
+.FIPageTitle {
+  color: var(--dy-color-text) !important; /* Default impose !important */
+}
+
+.FISectionTitle {
+  color: var(--dy-color-text);
+}
+
+/* Function Interpreter - cartes poste */
+.FIMachineCard {
+  background: var(--dy-color-surface);
+  border-color: var(--dy-color-border);
+  border-radius: 6px;
+}
+
+.FIMachineCard--running {
+  border-left-color: var(--dy-status-running) !important;
+}
+
+.FIMachineCard--waiting {
+  border-left-color: var(--dy-status-waiting) !important;
+}
+
+.FIMachineCard--blocked {
+  border-left-color: var(--dy-status-blocked) !important;
+  background: #fff1f2 !important;
+}
+
+.FIMachineCard--quality-alert {
+  border-left-color: var(--dy-status-quality) !important;
+  background: #fffbeb !important;
+}
+
+/* Custom classes Process Builder */
+.dy-u-critical {
+  border-color: var(--dy-status-quality) !important;
+  outline: 0;
+  box-shadow: inset 0 0 0 2px rgb(180 83 9 / 0.28);
+}
+
+.dy-u-critical .FIStatus {
+  color: #7f1d1d !important; /* HTML simule Direct formatting */
+  background: #ffe4e6 !important;
+}
+
+/* Contextes Apriso */
+.MMScreenContext .FIMachineCard {
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.MobileAppScreenContext .FIButton {
+  width: 100%;
+}
 
 /* Compat upgrade Apriso - a supprimer apres migration complete.
    Hypothese atelier : FIMachineCard renomme en FIWorkstationCard.
@@ -16,4 +85,3 @@
 .FIWorkstationCard-title {
   color: var(--dy-color-text);
 }
-
