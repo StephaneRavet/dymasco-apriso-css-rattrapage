@@ -1,13 +1,6 @@
-/* ==========================================================================
-   DYMASCO THEME - interpreter.css
-   Zone de travail principale : Function Interpreter.
-
-   Regles de l'atelier :
-   - Ne pas modifier Default/
-   - Corriger ici quand le probleme concerne le contenu operation
-   - Garder les selecteurs courts mais scopes
-   - N'utiliser !important que si le diagnostic le justifie
-   ========================================================================== */
+/* Checkpoint 05 - cockpit superviseur - depart
+   Etat volontairement fonctionnel mais insuffisant.
+*/
 
 @import url("../Default/interpreter.css");
 
@@ -23,40 +16,130 @@
   --dy-status-quality: #b45309;
 }
 
-/* Exercice 2.1 : le titre reste bleu Apriso. */
 .FIPageTitle {
   color: var(--dy-color-text) !important;
 }
 
-/* Exercice 2.2 : les cartes critiques gardent le fond Apriso. */
-.FIMachineCard {
-  background: var(--dy-color-surface);
-  border-color: var(--dy-color-border);
-  border-radius: 6px;
+.FICockpitMeta {
+  margin: 0 0 12px;
+  color: #52636f;
+  font-size: 13px;
 }
 
-.FIMachineCard--blocked {
-  border-color: var(--dy-status-blocked) !important;
-  background: #fee2e2 !important;
+.FICockpitHeader {
+  margin-bottom: 12px;
 }
 
-.FIMachineCard--quality-alert {
-  border-color: var(--dy-status-quality) !important;
-  background: #fffbeb !important;
+.FICockpitActions {
+  display: flex;
+  gap: 8px;
 }
 
-/* Exercice 2.3 : badges status a harmoniser. */
-.FIStatus {
-  color: var(--dy-color-text);
-  background: var(--dy-color-soft);
+.FIButton {
+  cursor: pointer;
 }
 
-/* Exercice 3.1 : custom class Process Builder simulee. */
-.dy-u-critical {
-  outline: 2px solid var(--dy-status-quality);
+.FIButton--danger {
+  color: #b91c1c;
+  background: white;
+  border-color: #b91c1c;
 }
 
-.dy-u-critical .FIStatus {
-  color: #7f1d1d;
-  background: #ffe4e6;
+.FIPriorityStrip {
+  margin: 12px 0;
+  padding: 12px;
+  background: #f7fafc;
+  border: 1px solid #c9d3df;
+}
+
+.FIKpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.FIKpiCard,
+.FICell,
+.FIIncidentPanel {
+  padding: 12px;
+  background: white;
+  border: 1px solid #b8c5cf;
+}
+
+.FIKpiLabel,
+.FIKpiHint {
+  display: block;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIKpiValue {
+  display: block;
+  margin: 6px 0;
+  color: #172026;
+  font-size: 30px;
+}
+
+.FIWorkArea {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.FILineMap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.FICell h4,
+.FICell p {
+  margin: 0 0 6px;
+}
+
+.FICellMetrics {
+  display: flex;
+  justify-content: space-between;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FICell--blocked {
+  border-color: #b91c1c;
+  background: #fff1f2;
+}
+
+.FICell--quality {
+  border-color: #b45309;
+  background: #fffbeb;
+}
+
+.FIQueueTable {
+  min-width: 720px;
+}
+
+.FIIncidentList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.FIIncidentList li {
+  margin-bottom: 10px;
+}
+
+.FIIncidentList span {
+  display: block;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIShiftSummary {
+  margin-top: 14px;
+  color: #52636f;
+  font-size: 12px;
+}
+
+.FIQueueTable tr td:nth-child(5) .FIStatus {
+  font-weight: 800 !important;
 }

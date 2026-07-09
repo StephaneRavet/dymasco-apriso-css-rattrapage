@@ -22,3 +22,8 @@
   color: var(--dy-color-brand-dark);
 }
 
+.AprisoPortalTab {
+  appearance: none;
+  font-family: inherit;
+  cursor: pointer;
+}

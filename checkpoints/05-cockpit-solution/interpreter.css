@@ -33,6 +33,7 @@
 }
 
 .FIButton {
+  cursor: pointer;
   min-width: 0;
   white-space: nowrap;
 }

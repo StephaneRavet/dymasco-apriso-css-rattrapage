@@ -17,10 +17,10 @@
 
     <main class="AprisoMain">
       <nav class="AprisoPortalTabs" aria-label="Navigation Apriso simulee">
-        <span class="AprisoPortalTab is-active">Cockpit ligne</span>
-        <span class="AprisoPortalTab">OF</span>
-        <span class="AprisoPortalTab">Qualite</span>
-        <span class="AprisoPortalTab">Maintenance</span>
+        <button type="button" class="AprisoPortalTab is-active" aria-current="page">Cockpit ligne</button>
+        <button type="button" class="AprisoPortalTab">OF</button>
+        <button type="button" class="AprisoPortalTab">Qualite</button>
+        <button type="button" class="AprisoPortalTab">Maintenance</button>
       </nav>
 
       <section class="AprisoContentFrame">
@@ -32,9 +32,9 @@
                 <p class="FICockpitMeta">Objectif client : savoir en 10 secondes quoi traiter en priorite.</p>
               </div>
               <div class="FICockpitActions" aria-label="Actions superviseur">
-                <button class="FIButton">Rafraichir</button>
-                <button class="FIButton FIButton--secondary">Replanifier</button>
-                <button class="FIButton FIButton--danger">Escalader incident</button>
+                <button type="button" class="FIButton">Rafraichir</button>
+                <button type="button" class="FIButton FIButton--secondary">Replanifier</button>
+                <button type="button" class="FIButton FIButton--danger">Escalader incident</button>
               </div>
             </header>
 
@@ -44,7 +44,7 @@
                 <strong>Poste A3-03 bloque depuis 28 min</strong>
               </div>
               <p>OF-24073 risque de decaler la cloture du lot. Controle outillage requis avant reprise.</p>
-              <button class="FIButton FIButton--secondary">Ouvrir le dossier</button>
+              <button type="button" class="FIButton FIButton--secondary">Ouvrir le dossier</button>
             </section>
 
             <section class="FIKpiGrid" aria-label="Indicateurs ligne">
@@ -146,7 +146,7 @@
                         <td>A3-03</td>
                         <td>28 min</td>
                         <td><span class="FIStatus" style="background:#fee2e2;color:#7f1d1d">blocked</span></td>
-                        <td><button class="FIButton FIButton--secondary">Traiter</button></td>
+                        <td><button type="button" class="FIButton FIButton--secondary">Traiter</button></td>
                       </tr>
                       <tr>
                         <td>P2</td>
@@ -154,7 +154,7 @@
                         <td>A3-04</td>
                         <td>16 min</td>
                         <td><span class="FIStatus FIStatus--quality">quality</span></td>
-                        <td><button class="FIButton">Voir</button></td>
+                        <td><button type="button" class="FIButton">Voir</button></td>
                       </tr>
                       <tr>
                         <td>P3</td>
@@ -162,7 +162,7 @@
                         <td>A3-02</td>
                         <td>12 min</td>
                         <td><span class="FIStatus">waiting</span></td>
-                        <td><button class="FIButton">Voir</button></td>
+                        <td><button type="button" class="FIButton">Voir</button></td>
                       </tr>
                     </tbody>
                   </table>

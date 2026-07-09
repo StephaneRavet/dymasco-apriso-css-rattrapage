@@ -35,6 +35,10 @@
   gap: 8px;
 }
 
+.FIButton {
+  cursor: pointer;
+}
+
 .FIButton--danger {
   color: #b91c1c;
   background: white;
