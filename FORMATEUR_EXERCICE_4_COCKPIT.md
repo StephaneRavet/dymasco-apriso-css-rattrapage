@@ -24,8 +24,6 @@ cp checkpoints/05-cockpit-start/interpreter.css Portal/Styles/Dymasco/interprete
 
 ```text
 Portal/Screens/exercice-4-cockpit.html
-Portal/Screens/exercice-4-cockpit-mm.html
-Portal/Screens/exercice-4-cockpit-mobile.html
 ```
 
 Correction :
@@ -42,10 +40,10 @@ checkpoints/05-cockpit-solution/interpreter.css
 | Layout moderne | Difficile mais faisable |
 | Cascade Apriso | Moyen |
 | Maintenabilité | Difficile |
-| Responsive | Difficile |
+| Responsive tablette | Difficile |
 | Pièges cachés | Présents mais justifiables |
 
-Le départ doit être exploitable en desktop, mais casser clairement en tablette/mobile.
+Le départ doit être exploitable en desktop, mais casser clairement en largeur tablette.
 
 La solution de référence est une trajectoire, pas une copie obligatoire.
 
@@ -62,7 +60,7 @@ La solution de référence est une trajectoire, pas une copie obligatoire.
 | 7 | Absence de `clamp()` | tailles fixes sur titres/KPI |
 | 8 | Sélecteur structurel | `td:nth-child(5)` |
 | 9 | Inline style simulé | `style="background:#fee2e2;color:#7f1d1d"` |
-| 10 | Contextes non testés | Portal seul fonctionne |
+| 10 | Responsive non testé | largeur tablette non vérifiée |
 
 ## Paliers de correction
 
@@ -96,7 +94,7 @@ But :
 - pas de scroll horizontal global ;
 - les actions reviennent à la ligne ;
 - la table scrolle localement ;
-- le cockpit reste lisible tablette/mobile.
+- le cockpit reste lisible en largeur tablette.
 
 Sélecteurs probables :
 
@@ -121,7 +119,7 @@ But :
 - tokens nommés ;
 - sections lisibles ;
 - sélecteurs courts ;
-- contextes Apriso séparés ;
+- règles responsive lisibles ;
 - dette Process Builder nommée.
 
 Sélecteurs / tokens probables :
@@ -130,14 +128,14 @@ Sélecteurs / tokens probables :
 - `--dy-critical-soft`
 - `--dy-quality-soft`
 - `.dy-client-priority .FIStatus`
-- `.MMScreenContext`
-- `.MobileAppScreenContext`
+- `@media (max-width: 920px)`
+- `@media (max-width: 560px)`
 
 Points de vigilance :
 
 - ne pas accepter `nth-child` comme intention métier ;
 - documenter tout contournement inline ;
-- ne pas mélanger M&M et mobile dans une même règle trop large.
+- ne pas traiter M&M/mobile si le contexte réel Dymasco ne le demande pas.
 
 ### Bonus - Finesse CSS
 
@@ -268,17 +266,20 @@ Contournement acceptable dans le kit :
 
 ## Questions de débrief
 
+Faire lire 2 ou 3 mini-notes avant de montrer la correction.
+
 1. Qu'est-ce qui rend A3-03 prioritaire sans lire tout l'écran ?
 2. Où le scroll horizontal est-il acceptable ?
 3. Quelle règle CSS serait dangereuse si une colonne OF était ajoutée ?
-4. Quelle correction devrait être faite dans Process Builder plutôt qu'en CSS ?
-5. Quelle règle d'équipe évite de refaire le même patch dans 6 mois ?
+4. Où le responsive est-il nécessaire dans leur vrai usage Dymasco ?
+5. Quelle correction devrait être faite dans Process Builder plutôt qu'en CSS ?
+6. Quelle règle d'équipe évite de refaire le même patch dans 6 mois ?
 
 ## Signaux d'une bonne solution
 
 - L'écran répond à la demande client avant d'être joli.
 - Les valeurs métier passent par tokens.
-- Les contextes sont séparés.
+- Le responsive répond au besoin réel, sans sur-traiter M&M/mobile.
 - Les `!important` sont rares et justifiés.
 - Les zones denses restent denses sans casser la page.
 - La mini-note d'arbitrage mentionne au moins une dette Process Builder.
@@ -288,6 +289,6 @@ Contournement acceptable dans le kit :
 - Tout est rendu rouge.
 - Le tableau force encore la largeur globale.
 - La solution dépend de `nth-child`.
-- Les contextes M&M/mobile sont ignorés.
+- La largeur tablette est ignorée.
 - Les tokens existants sont contournés.
 - Le CSS final est une suite de patchs chronologiques.

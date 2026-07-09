@@ -34,8 +34,6 @@ Portal/
     atelier-mm.html
     atelier-mobile.html
     exercice-4-cockpit.html
-    exercice-4-cockpit-mm.html
-    exercice-4-cockpit-mobile.html
 checkpoints/
   00-start/
   01-diagnostic/
@@ -75,8 +73,6 @@ Exercice final :
 
 ```text
 Portal/Screens/exercice-4-cockpit.html
-Portal/Screens/exercice-4-cockpit-mm.html
-Portal/Screens/exercice-4-cockpit-mobile.html
 ```
 
 ## Competences visees

@@ -270,43 +270,6 @@
   font-size: 12px;
 }
 
-/* Contextes Apriso */
-.MMScreenContext .FICockpit {
-  gap: 8px;
-}
-
-.MMScreenContext .FICockpitHeader,
-.MMScreenContext .FIWorkArea {
-  grid-template-columns: 1fr;
-}
-
-.MMScreenContext .FICockpitHeader {
-  display: grid;
-}
-
-.MMScreenContext .FICockpitActions {
-  justify-content: flex-start;
-}
-
-.MMScreenContext .FIIncidentPanel {
-  grid-column: auto;
-}
-
-.MobileAppScreenContext .FICockpitHeader,
-.MobileAppScreenContext .FIPriorityStrip,
-.MobileAppScreenContext .FIWorkArea {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.MobileAppScreenContext .FIIncidentPanel {
-  grid-column: auto;
-}
-
-.MobileAppScreenContext .FICockpitActions .FIButton {
-  width: 100%;
-}
-
 @media (max-width: 920px) {
   .FICockpitHeader,
   .FIPriorityStrip,

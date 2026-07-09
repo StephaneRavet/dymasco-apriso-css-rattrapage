@@ -1315,13 +1315,6 @@ EXERCICE_4_COCKPIT.md
 Portal/Screens/exercice-4-cockpit.html
 ```
 
-Contextes à comparer :
-
-```text
-Portal/Screens/exercice-4-cockpit-mm.html
-Portal/Screens/exercice-4-cockpit-mobile.html
-```
-
 Départ :
 
 ```text
@@ -1345,8 +1338,8 @@ FORMATEUR_EXERCICE_4_COCKPIT.md
 | Palier | Objectif | Critères |
 | --- | --- | --- |
 | Bronze | Lisibilité client | priorité A3-03 visible, KPI lisibles, actions compréhensibles |
-| Silver | Layout responsive | `grid` robuste, `flex` qui wrap, pas de scroll horizontal global |
-| Gold | Maintenabilité | tokens, sections, sélecteurs courts, contextes séparés |
+| Silver | Layout responsive | `grid` robuste, `flex` qui wrap, pas de scroll horizontal global en largeur tablette |
+| Gold | Maintenabilité | tokens, sections, sélecteurs courts, règles lisibles |
 | Bonus | Finesse CSS | `clamp()` bien borné, fallback `var()`, subtilité inline documentée |
 
 ## Compétences travaillées
@@ -1357,7 +1350,7 @@ FORMATEUR_EXERCICE_4_COCKPIT.md
 - utiliser `clamp()` sans rendre le rendu instable ;
 - utiliser `var()` et tokens métier ;
 - éviter les sélecteurs structurels fragiles ;
-- scoper Portal / M&M / mobile ;
+- traiter le responsive utile sans sur-traiter M&M/mobile ;
 - documenter la dette Process Builder quand le HTML impose un inline style.
 
 ## Sortie attendue
@@ -1430,3 +1423,16 @@ On a travaillé trois gestes :
 Question finale :
 
 > Quelle méthode ou checklist repartez-vous avec, concrètement utilisable dans votre environnement Apriso ?
+
+Réponses attendues :
+
+- Toujours inspecter avant de corriger : règle gagnante, fichier, propriété, cause.
+- Ne jamais modifier le thème livré `Default/`.
+- Choisir le bon fichier : `apriso.css`, `interpreter.css`, `keyboard.css`, ou Process Builder.
+- Préférer une classe métier Process Builder à un sélecteur structurel profond.
+- Utiliser les tokens Dymasco pour les couleurs et statuts métier.
+- Limiter `!important` aux cas justifiés par le diagnostic.
+- Identifier les styles inline / Direct formatting comme dette Apriso, pas comme simple bug CSS.
+- Tester le contexte réellement utilisé : Portal desktop, largeur tablette, ou M&M/mobile seulement si l'écran existe dans ces contextes.
+- Documenter les exceptions : patch temporaire, dette Process Builder, convention d'équipe.
+- Garder le thème lisible par sections : tokens, composants, statuts, custom classes, contextes.
