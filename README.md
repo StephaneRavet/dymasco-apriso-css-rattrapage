@@ -16,7 +16,9 @@ Objectif : simuler un environnement DELMIA Apriso sans acces a Apriso.
 ```text
 FORMATION.md
 EXERCICE_4_COCKPIT.md
+FORMATEUR_EXERCICE_4_COCKPIT.md
 CHECKLIST_APRISO_REEL.md
+CONTEXT.md
 Portal/
   Styles/
     Default/
@@ -32,6 +34,8 @@ Portal/
     atelier-mm.html
     atelier-mobile.html
     exercice-4-cockpit.html
+    exercice-4-cockpit-mm.html
+    exercice-4-cockpit-mobile.html
 checkpoints/
   00-start/
   01-diagnostic/
@@ -47,8 +51,10 @@ checkpoints/
 | Fichier | Usage |
 | --- | --- |
 | `FORMATION.md` | Support principal, futur contenu Notion |
-| `EXERCICE_4_COCKPIT.md` | Challenge client cockpit superviseur |
+| `EXERCICE_4_COCKPIT.md` | Fiche apprenant du challenge cockpit |
+| `FORMATEUR_EXERCICE_4_COCKPIT.md` | Corrigé et animation formateur |
 | `CHECKLIST_APRISO_REEL.md` | Transfert vers l'environnement Apriso réel |
+| `CONTEXT.md` | Glossaire pédagogique du kit |
 
 ## Lancer
 
@@ -63,6 +69,14 @@ Puis comparer avec :
 ```text
 Portal/Screens/atelier-mm.html
 Portal/Screens/atelier-mobile.html
+```
+
+Exercice final :
+
+```text
+Portal/Screens/exercice-4-cockpit.html
+Portal/Screens/exercice-4-cockpit-mm.html
+Portal/Screens/exercice-4-cockpit-mobile.html
 ```
 
 ## Competences visees

@@ -35,16 +35,17 @@ Ouvrir :
 Portal/Screens/exercice-4-cockpit.html
 ```
 
+Comparer avec :
+
+```text
+Portal/Screens/exercice-4-cockpit-mm.html
+Portal/Screens/exercice-4-cockpit-mobile.html
+```
+
 Fichier de travail :
 
 ```text
 Portal/Styles/Dymasco/interpreter.css
-```
-
-Correction de référence :
-
-```text
-checkpoints/05-cockpit-solution/interpreter.css
 ```
 
 ## Contraintes
@@ -54,7 +55,7 @@ checkpoints/05-cockpit-solution/interpreter.css
 - Ne pas transformer l'exercice en intégration libre.
 - Si une classe métier semble nécessaire, la noter comme action Process Builder.
 - `!important` seulement si une règle gagnante l'impose.
-- Tester la largeur desktop, tablette, mobile.
+- Tester Portal, M&M et mobile.
 
 ## Paliers
 
@@ -74,22 +75,19 @@ Bonus pour les plus rapides.
 ## Travail demandé
 
 1. Diagnostiquer l'écran de départ.
-2. Identifier 5 problèmes CSS concrets.
-3. Corriger le thème Dymasco.
-4. Garder une architecture lisible.
+2. Identifier les problèmes qui empêchent la décision en 10 secondes.
+3. Corriger le thème Dymasco sans modifier le thème livré.
+4. Garder une architecture CSS lisible.
 5. Remplir la mini-note d'arbitrage.
 
-## Problèmes attendus
+## Points d'attention
 
-- `grid-template-columns: repeat(4, 1fr)` fragile sur KPI.
-- `FIWorkArea` en 3 colonnes trop rigide.
-- actions en `flex` sans wrap utile.
-- tableau avec `min-width` mais pas de wrapper utile.
-- valeurs couleur directes au lieu de tokens.
-- `clamp()` absent sur titres / KPI.
-- sélecteur `nth-child` fragile.
-- inline style simulé sur statut `blocked`.
-- contexte mobile / M&M non traité.
+- Priorité réelle de l'écran.
+- Hiérarchie des informations.
+- Stabilité du layout.
+- Densité en contexte M&M.
+- Usage mobile sans scroll horizontal global.
+- Différence entre dette CSS et dette Process Builder.
 
 ## Mini-note d'arbitrage
 
@@ -110,64 +108,10 @@ Dette / Process Builder :
 - 
 
 Tests faits :
-- Desktop :
-- Tablette :
+- Portal :
+- M&M :
 - Mobile :
 ```
-
-## Correction - trajectoire formateur
-
-### Bronze
-
-- Rendre la priorité A3-03 immédiatement visible.
-- Mettre le bouton d'escalade en action dangereuse.
-- Clarifier les KPI.
-- Éviter que le tableau casse la page.
-
-Points CSS :
-
-- `.FIPriorityStrip`
-- `.FIButton--danger`
-- `.FIKpiGrid`
-- `.FIQueueTableWrap`
-
-### Silver
-
-- Remplacer les colonnes fixes par des grilles adaptatives.
-- Autoriser les actions à revenir à la ligne.
-- Adapter `FIWorkArea` sous 920px.
-- Gérer le très petit écran sous 560px.
-
-Points CSS :
-
-- `repeat(auto-fit, minmax(...))`
-- `flex-wrap`
-- `@media`
-- `overflow-x: auto`
-
-### Gold
-
-- Ajouter des tokens utiles.
-- Regrouper les sections.
-- Remplacer les couleurs métier directes.
-- Supprimer le sélecteur `nth-child`.
-- Scoper les contextes Apriso.
-
-Points CSS :
-
-- `--dy-cockpit-gap`
-- `--dy-critical-soft`
-- `--dy-quality-soft`
-- `.dy-client-priority .FIStatus`
-- `.MMScreenContext`
-- `.MobileAppScreenContext`
-
-### Bonus
-
-- Utiliser `clamp()` sans créer de taille extrême.
-- Mettre un fallback `var()` si une valeur peut manquer.
-- Documenter la dette inline / Direct formatting.
-- Proposer une classe Process Builder stable.
 
 ## Règles d'équipe attendues
 

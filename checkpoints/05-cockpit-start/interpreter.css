@@ -36,15 +36,16 @@
 }
 
 .FIButton--danger {
-  background: #b91c1c;
-  border-color: #7f1d1d;
+  color: #b91c1c;
+  background: white;
+  border-color: #b91c1c;
 }
 
 .FIPriorityStrip {
   margin: 12px 0;
   padding: 12px;
-  background: #fff1f2;
-  border: 1px solid #fecdd3;
+  background: #f7fafc;
+  border: 1px solid #c9d3df;
 }
 
 .FIKpiGrid {

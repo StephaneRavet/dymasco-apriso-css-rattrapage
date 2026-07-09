@@ -1315,6 +1315,13 @@ EXERCICE_4_COCKPIT.md
 Portal/Screens/exercice-4-cockpit.html
 ```
 
+Contextes à comparer :
+
+```text
+Portal/Screens/exercice-4-cockpit-mm.html
+Portal/Screens/exercice-4-cockpit-mobile.html
+```
+
 Départ :
 
 ```text
@@ -1325,6 +1332,12 @@ Correction de référence :
 
 ```text
 checkpoints/05-cockpit-solution/interpreter.css
+```
+
+Fiche formateur :
+
+```text
+FORMATEUR_EXERCICE_4_COCKPIT.md
 ```
 
 ## Paliers

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr" class="MMScreenContext">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dymasco - Cockpit superviseur M&M</title>
+  <link rel="stylesheet" href="../Styles/Dymasco/apriso.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/interpreter.css">
+  <link rel="stylesheet" href="../Styles/Dymasco/keyboard.css">
+</head>
+<body>
+  <div class="AprisoPortalShell">
+    <header class="AprisoHeader">
+      <h1 class="AprisoHeader-title">DELMIA Apriso - Monitoring</h1>
+      <div class="AprisoHeader-meta">Ligne A3 - MMScreenContext</div>
+    </header>
+
+    <main class="AprisoMain">
+      <section class="AprisoContentFrame">
+        <div class="FIContentPanel">
+          <section class="FICockpit" aria-labelledby="cockpit-title">
+            <header class="FICockpitHeader">
+              <div>
+                <h2 class="FIPageTitle" id="cockpit-title">Cockpit superviseur - Ligne A3</h2>
+                <p class="FICockpitMeta">Vue murale dense : priorite, cadence, incidents.</p>
+              </div>
+              <div class="FICockpitActions" aria-label="Actions superviseur">
+                <button class="FIButton">Rafraichir</button>
+                <button class="FIButton FIButton--danger">Escalader incident</button>
+              </div>
+            </header>
+
+            <section class="FIPriorityStrip dy-client-priority">
+              <div>
+                <span class="FIStatus FIStatus--critical">Priorite 1</span>
+                <strong>Poste A3-03 bloque depuis 28 min</strong>
+              </div>
+              <p>Decision superviseur requise avant reprise.</p>
+              <button class="FIButton FIButton--secondary">Ouvrir le dossier</button>
+            </section>
+
+            <section class="FIKpiGrid" aria-label="Indicateurs ligne">
+              <article class="FIKpiCard FIKpiCard--late">
+                <span class="FIKpiLabel">OF en retard</span>
+                <strong class="FIKpiValue">7</strong>
+                <span class="FIKpiHint">+3 depuis 08:00</span>
+              </article>
+              <article class="FIKpiCard FIKpiCard--quality">
+                <span class="FIKpiLabel">Alertes qualite</span>
+                <strong class="FIKpiValue" style="color:#b45309">4</strong>
+                <span class="FIKpiHint">2 critiques</span>
+              </article>
+              <article class="FIKpiCard FIKpiCard--rate">
+                <span class="FIKpiLabel">Cadence</span>
+                <strong class="FIKpiValue">83%</strong>
+                <span class="FIKpiHint">cible 92%</span>
+              </article>
+            </section>
+
+            <div class="FIWorkArea">
+              <section class="FILinePanel" aria-labelledby="line-map-title">
+                <h3 class="FISectionTitle" id="line-map-title">Postes ligne A3</h3>
+                <div class="FILineMap">
+                  <article class="FICell FICell--running">
+                    <h4>A3-01</h4>
+                    <p>Assemblage</p>
+                    <div class="FICellMetrics"><span>OF-24071</span><span>92%</span></div>
+                  </article>
+                  <article class="FICell FICell--blocked dy-client-priority">
+                    <h4>A3-03</h4>
+                    <p>Incident outillage</p>
+                    <div class="FICellMetrics"><span>OF-24073</span><span>28 min</span></div>
+                  </article>
+                  <article class="FICell FICell--quality">
+                    <h4>A3-04</h4>
+                    <p>Ecart dimensionnel</p>
+                    <div class="FICellMetrics"><span>OF-24074</span><span>QC</span></div>
+                  </article>
+                </div>
+              </section>
+
+              <aside class="FIIncidentPanel" aria-labelledby="incident-title">
+                <h3 class="FISectionTitle" id="incident-title">Incidents ouverts</h3>
+                <ol class="FIIncidentList">
+                  <li><strong>Outillage A3-03</strong><span>Maintenance non affectee</span></li>
+                  <li><strong>Controle cote B12</strong><span>Attente validation qualite</span></li>
+                </ol>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
