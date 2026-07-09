@@ -16,9 +16,7 @@ Objectif : simuler un environnement DELMIA Apriso sans acces a Apriso.
 ```text
 FORMATION.md
 EXERCICE_4_COCKPIT.md
-FICHE_ANIMATEUR.md
 CHECKLIST_APRISO_REEL.md
-EXERCICES.md
 Portal/
   Styles/
     Default/
@@ -50,9 +48,7 @@ checkpoints/
 | --- | --- |
 | `FORMATION.md` | Support principal, futur contenu Notion |
 | `EXERCICE_4_COCKPIT.md` | Challenge client cockpit superviseur |
-| `FICHE_ANIMATEUR.md` | Déroulé, phrases, vigilance |
 | `CHECKLIST_APRISO_REEL.md` | Transfert vers l'environnement Apriso réel |
-| `EXERCICES.md` | Version compacte des exercices et corrigés |
 
 ## Lancer
 
